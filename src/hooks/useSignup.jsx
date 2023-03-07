@@ -8,7 +8,7 @@ export default function useSignup() {
     const [isPending, setIsPending] = useState(false)
     const { dispatch } = useAuthContext()
 
-    async function signup(email, password, username) {
+    async function signup(email, password, displayName) {
         setError(null)
         setIsPending(true)
 
@@ -19,7 +19,7 @@ export default function useSignup() {
                 throw new Error('Não foi possível completar o cadastro')
             }
 
-            await res.user.updateProfile({ username })
+            await res.user.updateProfile({ displayName })
 
             dispatch({ type: 'LOGIN', payload: res.user })
 
@@ -34,11 +34,10 @@ export default function useSignup() {
                 setIsPending(false)
             }
         }
-
+    }
     useEffect(() => {
         return () => setIsCancelled(true)
     }, [])
 
     return { error, isPending, signup }
-    }
 }

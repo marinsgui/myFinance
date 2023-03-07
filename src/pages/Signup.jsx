@@ -4,14 +4,14 @@ import useSignup from '../hooks/useSignup'
 import style from '../styles/Signup.module.css'
 
 export default function Signup() {
-    const [username, setUsername] = useState('')
+    const [displayName, setDisplayName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const { signup, isPending, error } = useSignup()
 
     function handleSubmit(e) {
         e.preventDefault()
-        signup(email, password, username)
+        signup(email, password, displayName)
     }
 
     return (
@@ -22,8 +22,8 @@ export default function Signup() {
                 <span>Nome de usuário:</span>
                 <input 
                     type="text"
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username} 
+                    onChange={(e) => setDisplayName(e.target.value)}
+                    value={displayName} 
                 />
             </label>
 
