@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import useLogin from '../hooks/useLogin'
 
 import style from '../styles/Login.module.css'
@@ -8,10 +10,12 @@ export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const { login, error, isPending } = useLogin()
+    const redirect = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
         login(email, password)
+        redirect('/')
     }
 
     return (

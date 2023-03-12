@@ -17,7 +17,7 @@ export default function Home() {
                 {documents && <TransactionList transactions={documents} />}
             </div>
             <aside className={style.sidebar}>
-                <TransactionForm uid={user.uid} />
+                <TransactionForm uid={user?.uid} />
             </aside>
         </main>
     )
