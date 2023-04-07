@@ -30,7 +30,7 @@ export default function useCollection(collection, _query, _orderBy) {
         })
 
         return () => unsub()
-    }, [collection, query])
+    }, [collection, query, orderBy])
 
     return { documents, error }
 }
