@@ -12,7 +12,7 @@ export default function useCollection(collection, _query, _orderBy) {
         let ref = projectFirestore.collection(collection)
 
         if(query) {
-            ref = ref.where(...query)
+            ref = ref.where(...query || '')
         }
 
         if(orderBy) {
